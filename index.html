@@ -27,6 +27,7 @@
   html{scroll-behavior:smooth}
   body{font-family:var(--sans);font-size:1.0625rem;line-height:1.6;color:var(--spruce);background:var(--paper);-webkit-font-smoothing:antialiased}
   a{color:inherit}
+  [hidden]{display:none !important}
   :focus-visible{outline:2px solid var(--brass);outline-offset:3px}
   .wrap{width:min(1080px,100% - 40px);margin-inline:auto}
 
@@ -91,6 +92,8 @@
   dl{display:grid;grid-template-columns:120px 1fr;gap:14px 20px;margin-bottom:30px}
   dt{color:#9FB0A8}
   dd{color:var(--paper)}
+  dd a{color:var(--brass);text-underline-offset:3px}
+  dd a:hover{color:#BC9C62}
 
   footer{background:var(--spruce);color:#8FA097;font-size:.88rem;padding:0 0 40px}
   footer .wrap{border-top:1px solid #2C3F37;padding-top:24px}
@@ -129,7 +132,7 @@
       <div class="hero-copy">
         <h1>Brand-name overstock, priced well below retail.</h1>
         <p>We buy liquidation inventory from major retailers and sell it item by item, right here in Royse City. New lots arrive every week.</p>
-        <a class="btn" href="#" id="fbLink">See this week's listings</a>
+        <a class="btn fb" href="#" id="fbLink">See this week's listings</a>
         <a class="btn line" href="#how">How it works</a>
       </div>
       <figure class="hero-photo"><img src="images/hero.jpg" alt="A selection of items currently in stock at The Haul House" onerror="this.closest('figure').remove()"></figure>
@@ -174,9 +177,9 @@
     </div>
     <div>
       <details><summary>Are the items new?</summary><p>Condition varies. Items are overstock, open-box, shelf pulls, or customer returns. Each listing describes what we know about that item.</p></details>
-      <details><summary>Do you offer returns or warranties?</summary><p>Items are sold as-is, which is how we keep prices low. Inspect your item at pickup and ask us anything beforehand. <span class="fill">Add your own test or return policy here if you offer one</span></p></details>
-      <details><summary>Do you ship?</summary><p>No. We sell locally, with pickup in the Royse City area. <span class="fill">Update this if you add delivery or shipping</span></p></details>
-      <details><summary>How can I pay?</summary><p><span class="fill">List accepted payment methods</span></p></details>
+      <details><summary>Do you offer returns or warranties?</summary><p>Items are sold as-is, which is how we keep prices low. Every sale happens in person, so you can inspect the item at pickup before you pay. Ask us anything beforehand.</p></details>
+      <details><summary>Do you ship?</summary><p>No. We sell locally, with pickup in the Royse City area.</p></details>
+      <details><summary>How can I pay?</summary><p>We accept cash, Venmo, and Zelle. All sales are in person at pickup.</p></details>
     </div>
   </div>
 </section>
@@ -189,11 +192,10 @@
     </div>
     <div>
       <dl>
-        <dt>Phone or text</dt><dd><span class="fill">your number</span></dd>
-        <dt>Email</dt><dd><span class="fill">your email</span></dd>
+        <dt>Email</dt><dd><a href="mailto:deals@haulhousetx.com">deals@haulhousetx.com</a></dd>
         <dt>Pickup</dt><dd>Royse City, Texas. We share the exact spot once you message us.</dd>
       </dl>
-      <a class="btn" href="#" id="fbLink2">Message us on Facebook</a>
+      <a class="btn fb" href="#" id="fbLink2">Message us on Facebook</a>
     </div>
   </div>
 </section>
@@ -206,6 +208,8 @@
 
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
+  // Hide the Facebook buttons until a real link is set in their href
+  document.querySelectorAll('a.fb').forEach(function(a){ if (a.getAttribute('href') === '#') a.hidden = true; });
 </script>
 </body>
 </html>
